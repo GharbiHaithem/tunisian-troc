@@ -1,0 +1,5 @@
+.fiche-wrapper{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    margin-top: 50px;
+}
