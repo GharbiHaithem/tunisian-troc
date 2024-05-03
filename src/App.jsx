@@ -10,6 +10,8 @@ import Member from './Pages/Member'
 import { Menu } from './Component/Menu'
 import Info from './Pages/Info'
 import Fiche from './Component/Fiche'
+import BreadCrumb from './Component/BreadCrum'
+import DetailsTroc from './Component/DetailsTroc'
 function App() {
 const[openMenu,setOpenMenu] = useState(false)
 const [isMediumScreen, setIsMediumScreen] = useState(false);
@@ -38,8 +40,9 @@ useLayoutEffect(() => {
        <Route   path='/register' element={<Register isMediumScreen={isMediumScreen}  openMenu={openMenu} setOpenMenu={setOpenMenu}/>}  />
        <Route   path='/member'  element={<Member isMediumScreen={isMediumScreen} openMenu={openMenu} setOpenMenu={setOpenMenu}/>}  />
        <Route path='/info' element={<Info/>} />
+       <Route path='/troc' element={<DetailsTroc  isMediumScreen={isMediumScreen} />} />
        <Route path='/member/fiche' element={<Fiche/>} />
-       
+    
    </Routes>
    <Footer isMediumScreen={isMediumScreen} setOpenMenu={setOpenMenu} openMenu={openMenu}/>
  </BrowserRouter>

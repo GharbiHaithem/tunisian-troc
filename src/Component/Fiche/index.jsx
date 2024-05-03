@@ -4,6 +4,8 @@ import ReactStars from "react-rating-stars-component";
 import { BsEnvelopeFill } from "react-icons/bs";
 import i1 from '../../images/2011_Alfa_Romeo_Giulietta_Veloce_JTDm-2_2.0_Front.jpg'
 import i2 from '../../images/alfa-romeo-Giulia.jpg'
+import { Navigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Fiche = () => {
   return (
@@ -53,7 +55,7 @@ const Fiche = () => {
     <button className='w-full bg-[#1c5c89] p-2 text-white  text-xs md:text-lg'>Il veut</button>
     
 </div>
-<div className='shadow-lg relative w-full gap-2  flex  '>
+<Link to={'/troc'} className='shadow-lg relative w-full gap-2  flex  '>
 <div className='relative'>
 <img src={i1} alt='' className='w-[220px] h-[120px] object-cover'/>
  <span className='absolute top-1 left-1 h-[30px] border-1  border-white w-[30px] flex items-center justify-center bg-[#1c5c89] text-white'>4</span>
@@ -67,7 +69,7 @@ const Fiche = () => {
 <span className='text-xs font-normal text-slate-400'>Annonces de &nbsp;05/04/2025</span>
 </div>
 <span className='text-[#ff4400e9] hidden md:block absolute right-0 top-0  mb-0  font-semibold'>25&nbsp; 000 TND </span>
-</div>
+</Link>
             </div>
         </div>
   </div>
