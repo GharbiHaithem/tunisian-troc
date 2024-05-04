@@ -7,5 +7,6 @@
   font-family: "Poppins", sans-serif !important;
   font-style: normal;
 background:linear-gradient(to bottom,#1c5c89   , #e9edf4 ) ;
+height: max-content !important ;
 
 }

@@ -36,7 +36,7 @@ const Header = ({ setOpenMenu ,openMenu,isMediumScreen,showmenu,setShowmenu}) =>
 </div>
 <div className='relative'>
 <Menu  setShowmenu={setShowmenu}   showmenu={showmenu}/>
-{showmenu && <div className='w-[80%] shadow-slate-500 shadow-lg mx-auto absolute top-10  left-[10%]  bg-slate-200 h-[500px]'  onMouseLeave={()=>setShowmenu(false)}>
+{showmenu && isMediumScreen && <div className='w-[80%] shadow-slate-500 shadow-lg mx-auto absolute top-10  left-[10%]  bg-slate-200 h-[500px]  z-20'  onMouseLeave={()=>setShowmenu(false)}>
     <div className='flex gap-3 w-full flex-wrap'>
         <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
            <div className='flex items-center gap-2 bg-slate-300 p-2'>

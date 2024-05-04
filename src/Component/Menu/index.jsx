@@ -1,6 +1,9 @@
 import React from 'react'
 import PropType from 'prop-types'
-export const Menu = ({openMenu,showmenu,setShowmenu}) => {
+import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
+export const Menu = ({openMenu,showmenu,setShowmenu,isMediumScreen,setOpenMenu}) => {
+    
     return (
         <div className={`w-[80%]  h-10 ${openMenu ? 'block' : 'hidden'} md:block items-center mx-auto p-2`}>
             
@@ -14,11 +17,11 @@ export const Menu = ({openMenu,showmenu,setShowmenu}) => {
           {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
         <li>
-          <a href="#" className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}   onMouseEnter={()=>setShowmenu(true)} >Les offres</a>
+          <Link to="/offres" onClick={()=>setOpenMenu(false)}  className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}   onMouseEnter={()=>{setShowmenu(true) }}  >Les offres</Link>
           {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
         <li>
-          <a href="#" className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Les troqeurs</a>
+          <Link className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Les troqeurs</Link>
           {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
         <li>
@@ -39,4 +42,6 @@ Menu.prototype={
     openMenu:PropType.bool.isRequired,
     showmenu:PropType.bool.isRequired,
     setShowmenu :PropType.bool.isRequired,
+    isMediumScreen:PropType.bool.isRequired,
+    setOpenMenu :PropType.func.isRequired,
   }
