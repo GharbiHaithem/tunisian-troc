@@ -15,7 +15,7 @@ import DetailsTroc from './Component/DetailsTroc'
 function App() {
 const[openMenu,setOpenMenu] = useState(false)
 const [isMediumScreen, setIsMediumScreen] = useState(false);
-
+const [showmenu ,setShowmenu]=useState(false);
 useLayoutEffect(() => {
   function handleResize() {
     if (window.innerWidth >= 768) { // Taille de l'écran md
@@ -31,10 +31,10 @@ useLayoutEffect(() => {
   return () => window.removeEventListener('resize', handleResize);
 }, []);
   return (
-    <div className='body relative'>
+    <div className={`relative body  }  `}>
     {openMenu && <div className='z-[11] absolute top-0 left-[250px] w-full h-screen bg-[#0008]'></div>}
  <BrowserRouter>
- <Header setOpenMenu={setOpenMenu} isMediumScreen={isMediumScreen} openMenu={openMenu} />
+ <Header setShowmenu={setShowmenu} showmenu={showmenu}  setOpenMenu={setOpenMenu} isMediumScreen={isMediumScreen} openMenu={openMenu} />
    <Routes>
        <Route exact  path='/'  element={<Login isMediumScreen={isMediumScreen}  openMenu={openMenu} setOpenMenu={setOpenMenu}/>}  />
        <Route   path='/register' element={<Register isMediumScreen={isMediumScreen}  openMenu={openMenu} setOpenMenu={setOpenMenu}/>}  />
@@ -49,6 +49,7 @@ useLayoutEffect(() => {
    {openMenu && !isMediumScreen && <div className='fixed top-0 left-0 w-[250px] h-[100vh] bg-white'>
     <Menu openMenu={openMenu} />
     </div>}  
+  
     </div>
   )
 }

@@ -5,9 +5,11 @@ import { MdOutlineMenu } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { Menu } from '../Menu';
 import PropType from 'prop-types'
-const Header = ({ setOpenMenu ,openMenu,isMediumScreen}) => {
+import { IoCarSport } from "react-icons/io5";
+import { FaComputer } from "react-icons/fa6";
+const Header = ({ setOpenMenu ,openMenu,isMediumScreen,showmenu,setShowmenu}) => {
   return (
-   <div className=''>
+   <div className='relative'>
     <button className={`bg-[#0000005a] fixed  z-50 top-3 rounded-lg ${openMenu && !isMediumScreen  ? 'left-[260px] z-50' : ''} text-white md:mx-0 mx-2 md:hidden p-2`}  onClick={()=>setOpenMenu(!openMenu)}><MdOutlineMenu   className='fs-3' style={{color:'#eee'}}  /></button>
 
     <div className={`h-[60px] md:h-[100px] ${openMenu  && !isMediumScreen? 'translate-x-[250px]' : ''}  w-screen md:w-[80%] md:mx-auto bg-[#1c5c89] flex justify-between items-center`}>
@@ -32,7 +34,94 @@ const Header = ({ setOpenMenu ,openMenu,isMediumScreen}) => {
 
 </div>
 </div>
-<Menu/>
+<div className='relative'>
+<Menu  setShowmenu={setShowmenu}   showmenu={showmenu}/>
+{showmenu && <div className='w-[80%] shadow-slate-500 shadow-lg mx-auto absolute top-10  left-[10%]  bg-slate-200 h-[500px]'  onMouseLeave={()=>setShowmenu(false)}>
+    <div className='flex gap-3 w-full flex-wrap'>
+        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
+           <div className='flex items-center gap-2 bg-slate-300 p-2'>
+           <IoCarSport  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm text-[#1c5c89]'>VEHICULES</h5>
+           </div>
+           <span>voitures</span>
+           <span>motos</span>
+           <span>equipement auto </span>
+           <span>equipement moto</span>
+           <span>quads</span>
+        </div>
+        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
+           <div className='flex items-center gap-2 bg-slate-300 p-2'>
+           <FaComputer  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm  text-[#1c5c89]'>MULTIMEDIA</h5>
+           </div>
+           <span>voitures</span>
+           <span>motos</span>
+           <span>equipement auto </span>
+           <span>equipement moto</span>
+           <span>quads</span>
+        </div>
+        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
+           <div className='flex items-center gap-2 bg-slate-300 p-2'>
+           <FaComputer  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm  text-[#1c5c89]'>MULTIMEDIA</h5>
+           </div>
+           <span>voitures</span>
+           <span>motos</span>
+           <span>equipement auto </span>
+           <span>equipement moto</span>
+           <span>quads</span>
+        </div>
+        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
+           <div className='flex items-center gap-2 bg-slate-300 p-2'>
+           <FaComputer  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm  text-[#1c5c89]'>MULTIMEDIA</h5>
+           </div>
+           <span>voitures</span>
+           <span>motos</span>
+           <span>equipement auto </span>
+           <span>equipement moto</span>
+           <span>quads</span>
+        </div>
+        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
+           <div className='flex items-center gap-2 bg-slate-300 p-2'>
+           <FaComputer  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm  text-[#1c5c89]'>MULTIMEDIA</h5>
+           </div>
+           <span>voitures</span>
+           <span>motos</span>
+           <span>equipement auto </span>
+           <span>equipement moto</span>
+           <span>quads</span>
+        </div>
+        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
+           <div className='flex items-center gap-2 bg-slate-300 p-2'>
+           <FaComputer  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm  text-[#1c5c89]'>MULTIMEDIA</h5>
+           </div>
+           <span>voitures</span>
+           <span>motos</span>
+           <span>equipement auto </span>
+           <span>equipement moto</span>
+           <span>quads</span>
+        </div>
+        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
+           <div className='flex items-center gap-2 bg-slate-300 p-2'>
+           <FaComputer  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm  text-[#1c5c89]'>MULTIMEDIA</h5>
+           </div>
+           <span>voitures</span>
+           <span>motos</span>
+           <span>equipement auto </span>
+           <span>equipement moto</span>
+           <span>quads</span>
+        </div>
+        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
+           <div className='flex items-center gap-2 bg-slate-300 p-2'>
+           <FaComputer  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm  text-[#1c5c89]'>MULTIMEDIA</h5>
+           </div>
+           <span>voitures</span>
+           <span>motos</span>
+           <span>equipement auto </span>
+           <span>equipement moto</span>
+           <span>quads</span>
+        </div>
+    </div>
+    </div>}
+</div>
+
    </div>
   )
 }
@@ -40,5 +129,8 @@ Header.prototype={
     setOpenMenu:PropType.func.isRequired,
     openMenu:PropType.bool.isRequired,
     isMediumScreen:PropType.bool.isRequired,
+    setShowmenu:PropType.func.isRequired,
+    showmenu:PropType.bool.isRequired,
 }
+
 export default Header

@@ -33,7 +33,8 @@ const DetailsTroc = ({isMediumScreen}) => {
   <span className='text-[#236693] font-bold'>  M550D Très bon état</span>
 <span className='text-slate-400 text-xs font-medium'>Publiée le 01/05/2024</span>
     </div>
-    <div className='flex md:flex-row flex-col gap-3 mt-1'>
+  <div>
+      <div className='flex md:flex-row flex-col gap-3 mt-1'>
          <div className='md:w-[75%] w-full flex flex-col gap-1'>
             <img width={'100%'}  className='rounded-lg object-cover h-[450px]' src={i1} alt=''  />
             <div className='flex gap-1 w-[100%]'>
@@ -66,11 +67,19 @@ const DetailsTroc = ({isMediumScreen}) => {
             <button className='bg-[#ff6600] text-white p-2 w-full rounded-lg text-lg font-light'>Proposer une Echange</button>
             <button className='bg-[#236693] text-white p-2 w-full rounded-lg text-lg font-light'>Contacter par Email</button>
             <button className='bg-white border-1 border-slate-600 text-[#236693] p-2 w-full justify-center flex items-center rounded-lg text-lg font-light'><BiLike />J'aime cet Objet</button>
+            <div className='bg-white w-full text-[#236693] p-2 mt-3'>
+                <h4>par Gharbouch</h4>
+                <p className='mt-1 text-black text-sm'>Habite a Nabeul Nabeul 8000</p>
+                <button className='bg-[#236693] text-white p-2 block mx-auto rounded-lg mt-3'>Voi sa fiche et ces annonces</button>
+            </div>
          </div>
+        
          </>)}
   
     </div>
-    {isMediumScreen && (<div className='md:w-[67%]'>
+  </div>
+    {isMediumScreen && (<>
+        <div className='md:w-[67%]'>
          <h3 className='text-[#236693] font-bold mb-3 mt-2'>Année : <span className='text-[#ff4400e9]'>1999</span></h3>
  
 <p className='flex gap-2  mb-1 items-center justify-between'><span className='font-medium text-sm text-slate-400'>Constructeur :</span><span className='text-xs '> Suzuki</span></p><hr/>
@@ -87,7 +96,11 @@ const DetailsTroc = ({isMediumScreen}) => {
 
 
 
-         </div>) } 
+         </div>
+           
+    </>
+        ) 
+       } 
    <div className='mt-3'>
  <h6 className='text-[#236693] font-bold'>  Nico4740 souhaite en échange :</h6> 
 <div className='flex'>
@@ -101,6 +114,11 @@ const DetailsTroc = ({isMediumScreen}) => {
             <button className='bg-[#236693] text-white p-2  w-full rounded-lg md:text-lg text-xs md:font-light'>Contacter par Email</button>
             <button className='bg-white border-1 border-slate-600 text-[#236693] p-2  w-full md:text-lg text-xs justify-center flex items-center rounded-lg  font-light'><BiLike />J'aime cet Objet</button>
          </div>
+         <div className='bg-white w-full text-[#236693] p-2 mt-3'>
+                <h4>par Gharbouch</h4>
+                <p className='mt-1 text-black text-sm'>Habite a Nabeul Nabeul 8000</p>
+                <button className='bg-[#236693] text-white p-2 block mx-auto rounded-lg mt-3'>Voi sa fiche et ces annonces</button>
+            </div>
          </>)}
       
          <div className='bg-slate-200 h-[max-content]  mt-3  p-3'>
