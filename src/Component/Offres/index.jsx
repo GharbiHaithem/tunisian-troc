@@ -4,6 +4,7 @@ import { MdOutlineCategory } from "react-icons/md";
 import { GiModernCity } from "react-icons/gi";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { GoFilter } from "react-icons/go";
+import Annonce from '../Annonce';
 const Offres = () => {
   return (
    <>
@@ -64,37 +65,50 @@ const Offres = () => {
                       </select>
                     </div>
     </div>
-    <div className='md:w-[80%] mx-auto w-[98%] p-3 bg-white mt-3'>
+    
+  <div className='md:w-[80%] p-4 mb-3  flex md:flex-row  flex-col-reverse gap-2 mx-auto w-[97%]  bg-white'>
+ <div className='md:w-[80%] w-full'>
+ <Annonce/>
+    <Annonce/>
+    <Annonce/>
+    <Annonce/>
+    <Annonce/>
+ </div>
+    <div className='md:w-[20%] mx-auto w-[98%] p-1 bg-white '>
         <h5 className='font-medium text-[#1c5c89]'>Annonces a la lune</h5>
-        <div className='w-full  mt-2 border-1 rounded-lg border-red-400  h-[170px] bg-[#fff2ef]'>
-        <p className='text-center text-[#ed4300]  text-base font-medium mt-1 mb-1'>Roadster électrique Vmoto Stash</p>
+        <div className='w-full  mt-2 border-1 rounded-lg border-red-400  h-[180px] bg-[#fff2ef]'>
+        <p className='text-center text-[#ed4300]  text-base font-light mt-1 mb-1'>Scooter UNISCOOT DELTA 80 Cch</p>
           <div className='flex items-center justify-center'>
-          <img className='w-[60%] h-[100px] object-contain rounded-lg ' src={"http://www.lerepairedesmotards.com/img/actu/2021/nouveaute/roadster-electrique-v-moto-stash-profil.jpg"} alt='' />
+          <img className='w-[60%] h-[100px] object-contain rounded-lg ' src={"https://www.electrochaabani.com/images/upload/delta-5fe43c7d5bb4d.jpeg?v16"} alt='' />
+          </div>
+           <span className='text-center block mx-auto  text-[#1c5c89]  text-base font-bold mt-1'>2400 TND</span>
+        </div>
+        <div className='w-full  mt-2 border-1 rounded-lg border-red-400  h-[180px] bg-[#fff2ef]'>
+        <p className='text-center text-[#ed4300]  text-base font-light mt-1 mb-1'>
+SCOOTER ELECTRIQUE YADEA - E8S GRIS
+</p>
+          <div className='flex items-center justify-center'>
+          <img className='w-[60%] h-[100px] object-contain rounded-lg ' src={"https://www.electrochaabani.com/images/upload/motoelectriqueyadeae8s1-663237e0f05aa4.06199340.webp?v16"} alt='' />
           </div>
            <span className='text-center block mx-auto  text-[#1c5c89]  text-base font-bold mt-1'>500 TND</span>
         </div>
-        <div className='w-full  mt-2 border-1 rounded-lg border-red-400  h-[170px] bg-[#fff2ef]'>
-        <p className='text-center text-[#ed4300]  text-base font-medium mt-1 mb-1'>Roadster électrique Vmoto Stash</p>
-          <div className='flex items-center justify-center'>
-          <img className='w-[60%] h-[100px] object-contain rounded-lg ' src={"https://cdn-s-www.lalsace.fr/images/918109A1-E667-4BD4-88E7-3640D582A774/NW_detail/1-bmw-r-1300-gs-succes-annonce-la-plus-attendue-pour-l-annee-2024-une-machine-totalement-revue-avec-un-flat-de-145-chevaux-une-boite-sous-le-moteur-12-kg-de-moins-et-une-boucle-arriere-en-alu-1701335315.jpg"} alt='' />
-          </div>
-           <span className='text-center block mx-auto  text-[#1c5c89]  text-base font-bold mt-1'>500 TND</span>
-        </div>
-        <div className='w-full  mt-2 border-1 rounded-lg border-red-400  h-[170px] bg-[#fff2ef]'>
-        <p className='text-center text-[#ed4300]  text-base font-medium mt-1 mb-1'>Roadster électrique Vmoto Stash</p>
+        <div className='w-full  mt-2 border-1 rounded-lg border-red-400  h-[180px] bg-[#fff2ef]'>
+        <p className='text-center text-[#ed4300]  text-base font-light mt-1 mb-1'>Roadster électrique Vmoto Stash</p>
           <div className='flex items-center justify-center'>
           <img className='w-[60%] h-[100px] object-contain rounded-lg ' src={"https://images.caradisiac.com/images/9/8/7/3/199873/S1-actu-moto-et-scooter-de-la-semaine-la-cfmoto-800-nk-la-honda-cb1000r-2024-les-harley-davidson-made-in-china-une-serie-limitee-bmw-et-l-essai-de-la-ktm-890-adventure-739962.jpg"} alt='' />
           </div>
            <span className='text-center block mx-auto  text-[#1c5c89]  text-base font-bold mt-1'>500 TND</span>
         </div>
-        <div className='w-full  mt-2 border-1 rounded-lg border-red-400  h-[170px] bg-[#fff2ef]'>
-        <p className='text-center text-[#ed4300]  text-base font-medium mt-1 mb-1'>Roadster électrique Vmoto Stash</p>
+        <div className='w-full  mt-2 border-1 rounded-lg border-red-400  h-[180px] bg-[#fff2ef]'>
+        <p className='text-center text-[#ed4300]  text-base font-light mt-1 mb-1'>Roadster électrique Vmoto Stash</p>
           <div className='flex items-center justify-center'>
           <img className='w-[60%] h-[100px] object-contain rounded-lg ' src={"https://www.electrochaabani.com/images/upload/scooterzimotaveravespa3-632864392c6bb7.77030590.jpg?v16"} alt='' />
           </div>
            <span className='text-center block mx-auto  text-[#1c5c89]  text-base font-bold mt-1'>500 TND</span>
         </div>
     </div>
+  </div>
+    
    </>
   )
 }
