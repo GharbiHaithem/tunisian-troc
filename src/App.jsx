@@ -15,6 +15,8 @@ import DetailsTroc from './Component/DetailsTroc'
 import Offres from './Component/Offres'
 import DepotAnnonce from './Component/DepotAnnonce'
 import Mag from './Component/Mag'
+import Home from './Component/Home'
+import Members from './Component/Members'
 function App() {
 const[openMenu,setOpenMenu] = useState(false)
 const [isMediumScreen, setIsMediumScreen] = useState(false);
@@ -35,11 +37,12 @@ useLayoutEffect(() => {
 }, []);
   return (
     <div className={`relative body  }  `}>
-    {openMenu && <div className='z-[11] absolute top-0 left-[250px] w-full h-screen bg-[#0008]'></div>}
+    {openMenu && <div className='z-[11] absolute top-0 left-[250px] w-full h-[270vh] bg-[#0008]'></div>}
  <BrowserRouter>
  <Header setShowmenu={setShowmenu} showmenu={showmenu}  setOpenMenu={setOpenMenu} isMediumScreen={isMediumScreen} openMenu={openMenu} />
    <Routes>
-       <Route exact  path='/'  element={<Login isMediumScreen={isMediumScreen}  openMenu={openMenu} setOpenMenu={setOpenMenu}/>}  />
+   <Route exact path='/' element={<Home/>} />
+       <Route   path='/login'  element={<Login isMediumScreen={isMediumScreen}  openMenu={openMenu} setOpenMenu={setOpenMenu}/>}  />
        <Route   path='/register' element={<Register isMediumScreen={isMediumScreen}  openMenu={openMenu} setOpenMenu={setOpenMenu}/>}  />
        <Route   path='/member'  element={<Member isMediumScreen={isMediumScreen} openMenu={openMenu} setOpenMenu={setOpenMenu}/>}  />
        <Route path='/info' element={<Info/>} />
@@ -49,6 +52,7 @@ useLayoutEffect(() => {
        
      <Route path='/offres' element={<Offres/>} />
      <Route path='/depotannonce' element={<DepotAnnonce/>} />
+     <Route path='/members' element={<Members/>} />
      
    </Routes>
    <Footer isMediumScreen={isMediumScreen} setOpenMenu={setOpenMenu} openMenu={openMenu}/>

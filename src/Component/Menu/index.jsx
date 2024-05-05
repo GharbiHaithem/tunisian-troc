@@ -12,16 +12,16 @@ export const Menu = ({openMenu,showmenu,setShowmenu,isMediumScreen,setOpenMenu})
           <Link className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Accueil</Link>
        {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
-        <li>
-          <Link to={'/depotannonce'} onClick={()=>setOpenMenu(false)}className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Déposer  une annonce</Link>
+        <li onClick={()=>setOpenMenu(false)}>
+          <Link to={'/depotannonce'} className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Déposer  une annonce</Link>
+          {openMenu &&<hr className='mt-2 bg-slate-200' />}
+        </li>
+        <li onClick={()=>setOpenMenu(false)}>
+          <Link to="/offres"   className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}   onMouseEnter={()=>{setShowmenu(true) }}  >Les offres</Link>
           {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
         <li>
-          <Link to="/offres" onClick={()=>setOpenMenu(false)}  className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}   onMouseEnter={()=>{setShowmenu(true) }}  >Les offres</Link>
-          {openMenu &&<hr className='mt-2 bg-slate-200' />}
-        </li>
-        <li>
-          <Link className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Les troqeurs</Link>
+          <Link to={'/members'} className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Les troqeurs</Link>
           {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
         <li>
