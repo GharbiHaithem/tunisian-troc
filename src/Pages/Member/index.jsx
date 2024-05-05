@@ -17,7 +17,7 @@ const Member = () => {
  <div className='flex flex-col md:flex-row md:justify-between md:gap-20 mt-4'>
     <div className='flex flex-col mx-auto gap-2 w-[90%]  md:w-[45%]'>
         <button className='bg-[#1c5c89] rounded-sm text-white flex justify-center items-start gap-2 md:p-3  p-2 '><BiMessageSquareDots style={{fontWeight:'900' ,fontSize:'25px'}} /><span  className='text-xs md:text-lg '>Messages</span></button>
-        <Link  className='bg-[#1c5c89] rounded-sm text-white md:p-3  p-2 flex justify-center items-center gap-2'><CiFileOn  style={{fontWeight:'900' ,fontSize:'25px'}} /><span className='text-xs md:text-lg '>Mes annonces</span></Link>
+        <Link to={'/member/mag'} className='bg-[#1c5c89] rounded-sm text-white md:p-3  p-2 flex justify-center items-center gap-2'><CiFileOn  style={{fontWeight:'900' ,fontSize:'25px'}} /><span className='text-xs md:text-lg '>Mes annonces</span></Link>
         <button className='bg-[#1c5c89] rounded-sm text-white md:p-3 p-2 flex justify-center items-center
          gap-2'><AiOutlineLike style={{fontWeight:'900' ,fontSize:'25px'}}/><span>Favoris</span></button>
         <button className='bg-[#1c5c89] rounded-sm text-white md:p-3 p-2 flex justify-center items-center gap-2'><FaExchangeAlt  style={{fontWeight:'900' ,fontSize:'25px'}}  /><span className='text-xs md:text-lg '>Mes Trocs</span></button>

@@ -9,11 +9,11 @@ export const Menu = ({openMenu,showmenu,setShowmenu,isMediumScreen,setOpenMenu})
             
         <ul className={`flex  ${openMenu ? 'flex-col gap-3 mt-4': 'space-x-10 items-center'} `}>
         <li>
-          <a href="#" className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Accueil</a>
+          <Link className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Accueil</Link>
        {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
         <li>
-          <a href="#" className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Déposer  une annonce</a>
+          <Link to={'/depotannonce'} onClick={()=>setOpenMenu(false)}className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Déposer  une annonce</Link>
           {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
         <li>
@@ -25,11 +25,11 @@ export const Menu = ({openMenu,showmenu,setShowmenu,isMediumScreen,setOpenMenu})
           {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
         <li>
-          <a href="#" className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}> Mon compte</a>
+          <Link  className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}> Mon compte</Link>
           {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
         <li>
-          <a href="#" className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Aide</a>
+          <Link  className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Aide</Link>
           {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
       </ul>

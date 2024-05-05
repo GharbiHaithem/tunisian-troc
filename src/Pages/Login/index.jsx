@@ -25,8 +25,8 @@ const Login = ({openMenu,setOpenMenu,isMediumScreen}) => {
     </div>
     <div className='bg-[#f7f7f7] h-[max-content]  md:my-6 w-[90%] shadow-xl rounded-lg mx-auto px-3 py-3'>
         <h6  className='text-xs font-extrabold text-[#1c5c89] md:text-xl md:mb-8'>Nouvel utilisateur ?</h6>
-        <p className='mt-2 leading-5 text-xs font-normal text-slate-600 md:text-xl md:mb-8'>Si vous ne possédez pas encore de compte France-Troc , créez-le en quelques clics et commencez à troquer !</p>
-      <Link to={'/register'} className='bg-[#1c5c89] p-2 text-white mt-2 rounded-lg w-full md:p-4'>Devenir Troqueur</Link>
+        <p className='mt-2 leading-5 mb-3 text-xs font-normal text-slate-600 md:text-xl md:mb-8'>Si vous ne possédez pas encore de compte France-Troc , créez-le en quelques clics et commencez à troquer !</p>
+      <Link to={'/register'} className='bg-[#1c5c89] p-2 text-white mt-3 rounded-lg w-full md:p-4'>Devenir Troqueur</Link>
     </div>
 </div>
 
