@@ -25,7 +25,7 @@ export const Menu = ({openMenu,showmenu,setShowmenu,isMediumScreen,setOpenMenu})
           {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
         <li>
-          <Link  className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}> Mon compte</Link>
+          <Link to={'/login'} className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}> Mon compte</Link>
           {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
         <li>
