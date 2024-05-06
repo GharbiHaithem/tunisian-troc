@@ -6,6 +6,7 @@ import { MdEditSquare } from "react-icons/md";
 import { ImStatsDots } from "react-icons/im";
 import { IoIosSwitch } from "react-icons/io";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { Link } from 'react-router-dom';
 const Mag = () => {
   return (
     <div className='md:w-[80%] bg-white p-4 w-[97%]   h-[max-content]  mx-auto mt-6'>
@@ -33,7 +34,7 @@ const Mag = () => {
     </div>
     </div>
     <div className='md:w-1/3 w-full'>
-        <button  className='bg-[#df8844] p-2 justify-center text-lg font-semibold w-full text-white rounded-lg hover:bg-[#ef591e] flex gap-1 items-center'><PiCameraPlusLight  className='text-2xl font-bold' />Déposer une annonce</button>
+        <Link to={'/depotannonce'} className='bg-[#df8844] p-2 justify-center text-lg font-semibold w-full text-white rounded-lg hover:bg-[#ef591e] flex gap-1 items-center'><PiCameraPlusLight  className='text-2xl font-bold' />Déposer une annonce</Link>
     </div>
     </div>  
     <div className='shadow-md rounded-lg h-[300px] mt-3 w-full flex relative gap-5 bg-slate-100'>

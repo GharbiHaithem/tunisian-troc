@@ -17,15 +17,20 @@ import './style.css'
 import arr from '../../images/echange.png'
 import { SlArrowDown } from "react-icons/sl";
 import { SlArrowUp } from "react-icons/sl";
+import { useNavigate } from 'react-router'
 
 const DetailsTroc = ({isMediumScreen}) => {
     const[showTroc , setShowTroc] = useState(false)
     const[trocSender , setTrocSender] = useState(false)
     const[trocReceiver , setTrocReceiver] = useState(true)
     const topRef = useRef(null);
+    const navigate = useNavigate()
     useEffect(() => {
         // Faites défiler la page vers le haut lorsque la composante est montée
-        window.scrollTo(0, topRef.current.offsetTop);
+        window.scrollTo({
+          top: topRef.current.offsetTop,
+          behavior: 'smooth', // Ajoute un effet de défilement fluide
+        });
       }, []);
   return (
     <div ref={topRef} className='md:w-[80%] w-screen mx-auto bg-slate-200 p-3 h-[max-content]'>
@@ -64,7 +69,7 @@ const DetailsTroc = ({isMediumScreen}) => {
 
          </div>) : ( <>
             <div  className='md:w-[35%] w-full flex flex-col gap-2'>
-            <button className='bg-[#ff6600] text-white p-2 w-full rounded-lg text-lg font-light'>Proposer une Echange</button>
+            <button  onClick={()=>navigate('/troc/1')} className='bg-[#ff6600] text-white p-2 w-full rounded-lg text-lg font-light'>Proposer une Echange</button>
             <button className='bg-[#236693] text-white p-2 w-full rounded-lg text-lg font-light'>Contacter par Email</button>
             <button className='bg-white border-1 border-slate-600 text-[#236693] p-2 w-full justify-center flex items-center rounded-lg text-lg font-light'><BiLike />J'aime cet Objet</button>
             <div className='bg-white w-full text-[#236693] p-2 mt-3'>
@@ -159,19 +164,19 @@ const DetailsTroc = ({isMediumScreen}) => {
        
          </div>
     {!showTroc   ?   <div className='flex justify-center gap-2 items-center cursor-pointer'  onClick={()=>setShowTroc(!showTroc)}>
-       <SlArrowDown className='text-xl  font-extrabold text-[#236693] ' /> <h6 className='text-lg  font-semibold text-[#236693] '>Afficher les trocs concernant cette annonce</h6>
+       <SlArrowDown className='text-xl  font-extrabold text-[#236693] ' /> <h6 className='md:text-sm  font-semibold text-[#236693] text-xs'>Afficher les trocs concernant cette annonce</h6>
        </div> :
      <div>
      <div className='flex justify-center gap-2 items-center cursor-pointer'  onClick={()=>setShowTroc(!showTroc)}>
-       <SlArrowUp className='text-xl  font-extrabold text-[#236693] ' /> <h6 className='text-lg  font-semibold text-[#236693] '>Masquer les trocs concernant cette annonce</h6>
+       <SlArrowUp className='text-xl  font-extrabold text-[#236693] ' /> <h6 className='md:text-sm  font-semibold text-[#236693] text-xs '>Masquer les trocs concernant cette annonce</h6>
        </div>
        <div className='flex justify-between mt-3 gap-20'>
         <button onClick={()=>{
             setTrocSender(false)
-            setTrocReceiver(true)}} className={` w-[45%] p-1  ${trocReceiver ? 'bg-[#236693] text-white' : 'bg-white text-[#236693]'} `}>Les trocs reçu</button>
+            setTrocReceiver(true)}} className={` w-[45%] p-1  ${trocReceiver ? 'bg-[#236693] text-white' : 'bg-white text-[#236693]'} text-xs md:text-sm`}>Les trocs reçu</button>
         <button onClick={()=>{
             setTrocSender(true)
-            setTrocReceiver(false)}} className={` w-[45%] p-1  ${trocSender ? 'bg-[#236693] text-white' : 'bg-white text-[#236693]'} `}>Les trocs envoyés :</button>
+            setTrocReceiver(false)}} className={` w-[45%] p-1  ${trocSender ? 'bg-[#236693] text-white' : 'bg-white text-[#236693]'} text-xs md:text-sm`}>Les trocs envoyés :</button>
        </div>
      </div> }
     </div>

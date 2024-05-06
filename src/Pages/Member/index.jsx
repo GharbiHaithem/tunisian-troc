@@ -20,7 +20,7 @@ const Member = () => {
         <Link to={'/member/mag'} className='bg-[#1c5c89] rounded-sm text-white md:p-3  p-2 flex justify-center items-center gap-2'><CiFileOn  style={{fontWeight:'900' ,fontSize:'25px'}} /><span className='text-xs md:text-lg '>Mes annonces</span></Link>
         <button className='bg-[#1c5c89] rounded-sm text-white md:p-3 p-2 flex justify-center items-center
          gap-2'><AiOutlineLike style={{fontWeight:'900' ,fontSize:'25px'}}/><span>Favoris</span></button>
-        <button className='bg-[#1c5c89] rounded-sm text-white md:p-3 p-2 flex justify-center items-center gap-2'><FaExchangeAlt  style={{fontWeight:'900' ,fontSize:'25px'}}  /><span className='text-xs md:text-lg '>Mes Trocs</span></button>
+        <Link to={'/mytrocs'} className='bg-[#1c5c89] rounded-sm text-white md:p-3 p-2 flex justify-center items-center gap-2'><FaExchangeAlt  style={{fontWeight:'900' ,fontSize:'25px'}}  /><span className='text-xs md:text-lg '>Mes Trocs</span></Link>
         <Link to={'/info'} className='bg-[#1c5c89] rounded-sm text-white md:p-3  p-2 flex justify-center items-center gap-2'><FaUser style={{fontWeight:'900' ,fontSize:'25px'}}/><span className='text-xs md:text-lg '>Mes infos</span></Link>
         <button className='bg-[#ff6600] rounded-sm text-white md:p-3 p-2 flex justify-center items-center gap-2'><MdOutlineVpnKey style={{fontWeight:'900' ,fontSize:'25px'}}/><span className='text-xs md:text-lg '>Mon status</span></button>
         

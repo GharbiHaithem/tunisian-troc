@@ -17,6 +17,8 @@ import DepotAnnonce from './Component/DepotAnnonce'
 import Mag from './Component/Mag'
 import Home from './Component/Home'
 import Members from './Component/Members'
+import ProposerTroc from './Component/ProposerTroc'
+import MyTrocs from './Component/MyTrocs'
 function App() {
 const[openMenu,setOpenMenu] = useState(false)
 const [isMediumScreen, setIsMediumScreen] = useState(false);
@@ -47,13 +49,15 @@ useLayoutEffect(() => {
        <Route   path='/member'  element={<Member isMediumScreen={isMediumScreen} openMenu={openMenu} setOpenMenu={setOpenMenu}/>}  />
        <Route path='/info' element={<Info/>} />
        <Route path='/troc' element={<DetailsTroc  isMediumScreen={isMediumScreen} />} />
+       <Route path='/troc/:id' element={<ProposerTroc  isMediumScreen={isMediumScreen} />} />
+       <Route path='/mytrocs' element={<MyTrocs/>} />
        <Route path='/member/fiche' element={<Fiche/>} />
        <Route path='/member/mag' element={<Mag/>} />
        
      <Route path='/offres' element={<Offres/>} />
      <Route path='/depotannonce' element={<DepotAnnonce/>} />
      <Route path='/members' element={<Members/>} />
-     
+   
    </Routes>
    <Footer isMediumScreen={isMediumScreen} setOpenMenu={setOpenMenu} openMenu={openMenu}/>
    {openMenu && !isMediumScreen && <div className='fixed top-0 left-0 w-[250px] h-[100vh] bg-white'>

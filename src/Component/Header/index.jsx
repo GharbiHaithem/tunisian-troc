@@ -37,86 +37,86 @@ const Header = ({ setOpenMenu ,openMenu,isMediumScreen,showmenu,setShowmenu}) =>
 <div className='relative'>
 <Menu  setShowmenu={setShowmenu}   showmenu={showmenu}/>
 {showmenu && isMediumScreen && <div className='w-[80%] shadow-slate-500 shadow-lg mx-auto absolute top-10  left-[10%]  bg-slate-200 h-[500px]  z-20'  onMouseLeave={()=>setShowmenu(false)}>
-    <div className='flex gap-3 w-full flex-wrap'>
-        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
+    <div className='flex gap-3 w-full flex-wrap text-[#1c5c89]'>
+        <div  className='w-[calc(20%-12px)] flex flex-col gap-1 p-3'>
            <div className='flex items-center gap-2 bg-slate-300 p-2'>
            <IoCarSport  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm text-[#1c5c89]'>VEHICULES</h5>
            </div>
-           <span>voitures</span>
-           <span>motos</span>
-           <span>equipement auto </span>
-           <span>equipement moto</span>
-           <span>quads</span>
+           <span className='text-xs'>voitures</span>
+           <span className='text-xs'>motos</span>
+           <span className='text-xs'>equipement auto </span>
+           <span className='text-xs'>equipement moto</span>
+           <span className='text-xs'>quads</span>
         </div>
-        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
+        <div  className='w-[calc(18%-12px)] flex flex-col gap-1 p-3'>
+           <div className='flex items-center gap-2 bg-slate-300 p-2 text-xs'>
+           <FaComputer  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm  text-[#1c5c89]'>MULTIMEDIA</h5>
+           </div>
+           <span className='text-xs'>voitures</span>
+           <span className='text-xs'>motos</span>
+           <span className='text-xs'>equipement auto </span>
+           <span className='text-xs'>equipement moto</span>
+           <span className='text-xs'>quads</span>
+        </div>
+        <div  className='w-[calc(18%-12px)] flex flex-col gap-1 p-3'>
            <div className='flex items-center gap-2 bg-slate-300 p-2'>
            <FaComputer  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm  text-[#1c5c89]'>MULTIMEDIA</h5>
            </div>
-           <span>voitures</span>
-           <span>motos</span>
-           <span>equipement auto </span>
-           <span>equipement moto</span>
-           <span>quads</span>
+           <span className='text-xs'>voitures</span>
+           <span className='text-xs'>motos</span>
+           <span className='text-xs'>equipement auto </span>
+           <span className='text-xs'>equipement moto</span>
+           <span className='text-xs'>quads</span>
         </div>
-        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
+        <div  className='w-[calc(18%-12px)] flex flex-col gap-1 p-3'>
            <div className='flex items-center gap-2 bg-slate-300 p-2'>
            <FaComputer  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm  text-[#1c5c89]'>MULTIMEDIA</h5>
            </div>
-           <span>voitures</span>
-           <span>motos</span>
-           <span>equipement auto </span>
-           <span>equipement moto</span>
-           <span>quads</span>
+           <span className='text-xs'>voitures</span>
+           <span className='text-xs'>motos</span>
+           <span className='text-xs'>equipement auto </span>
+           <span className='text-xs'>equipement moto</span>
+           <span className='text-xs'>quads</span>
         </div>
-        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
+        <div  className='w-[calc(18%-12px)] flex flex-col gap-1 p-3'>
            <div className='flex items-center gap-2 bg-slate-300 p-2'>
            <FaComputer  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm  text-[#1c5c89]'>MULTIMEDIA</h5>
            </div>
-           <span>voitures</span>
-           <span>motos</span>
-           <span>equipement auto </span>
-           <span>equipement moto</span>
-           <span>quads</span>
+           <span className='text-xs'>voitures</span>
+           <span className='text-xs'>motos</span>
+           <span className='text-xs'>equipement auto </span>
+           <span className='text-xs'>equipement moto</span>
+           <span className='text-xs'>quads</span>
         </div>
-        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
+        <div  className='w-[calc(18%-12px)] flex flex-col gap-1 p-3'>
            <div className='flex items-center gap-2 bg-slate-300 p-2'>
            <FaComputer  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm  text-[#1c5c89]'>MULTIMEDIA</h5>
            </div>
-           <span>voitures</span>
-           <span>motos</span>
-           <span>equipement auto </span>
-           <span>equipement moto</span>
-           <span>quads</span>
+           <span className='text-xs'>voitures</span>
+           <span className='text-xs'>motos</span>
+           <span className='text-xs'>equipement auto </span>
+           <span className='text-xs'>equipement moto</span>
+           <span className='text-xs'>quads</span>
         </div>
-        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
+        <div  className='w-[calc(18%-12px)] flex flex-col gap-1 p-3'>
            <div className='flex items-center gap-2 bg-slate-300 p-2'>
            <FaComputer  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm  text-[#1c5c89]'>MULTIMEDIA</h5>
            </div>
-           <span>voitures</span>
-           <span>motos</span>
-           <span>equipement auto </span>
-           <span>equipement moto</span>
-           <span>quads</span>
+           <span className='text-xs'>voitures</span>
+           <span className='text-xs'>motos</span>
+           <span className='text-xs'>equipement auto </span>
+           <span className='text-xs'>equipement moto</span>
+           <span className='text-xs'>quads</span>
         </div>
-        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
+        <div  className='w-[calc(18%-12px)] flex flex-col gap-1 p-3'>
            <div className='flex items-center gap-2 bg-slate-300 p-2'>
            <FaComputer  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm  text-[#1c5c89]'>MULTIMEDIA</h5>
            </div>
-           <span>voitures</span>
-           <span>motos</span>
-           <span>equipement auto </span>
-           <span>equipement moto</span>
-           <span>quads</span>
-        </div>
-        <div  className='w-[calc(25%-12px)] flex flex-col gap-1 p-3'>
-           <div className='flex items-center gap-2 bg-slate-300 p-2'>
-           <FaComputer  className='font-bold text-2xl text-[#1c5c89]' />   <h5 className=' font-normal text-sm  text-[#1c5c89]'>MULTIMEDIA</h5>
-           </div>
-           <span>voitures</span>
-           <span>motos</span>
-           <span>equipement auto </span>
-           <span>equipement moto</span>
-           <span>quads</span>
+           <span className='text-xs'>voitures</span>
+           <span className='text-xs'>motos</span>
+           <span className='text-xs'>equipement auto </span>
+           <span className='text-xs'>equipement moto</span>
+           <span className='text-xs'>quads</span>
         </div>
     </div>
     </div>}

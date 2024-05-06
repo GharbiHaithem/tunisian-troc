@@ -8,8 +8,8 @@ export const Menu = ({openMenu,showmenu,setShowmenu,isMediumScreen,setOpenMenu})
         <div className={`w-[80%]  h-10 ${openMenu ? 'block' : 'hidden'} md:block items-center mx-auto p-2`}>
             
         <ul className={`flex  ${openMenu ? 'flex-col gap-3 mt-4': 'space-x-10 items-center'} `}>
-        <li>
-          <Link className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Accueil</Link>
+        <li onClick={()=>setOpenMenu(false)}>
+          <Link to={'/'} className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Accueil</Link>
        {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
         <li onClick={()=>setOpenMenu(false)}>
@@ -20,15 +20,15 @@ export const Menu = ({openMenu,showmenu,setShowmenu,isMediumScreen,setOpenMenu})
           <Link to="/offres"   className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}   onMouseEnter={()=>{setShowmenu(true) }}  >Les offres</Link>
           {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
-        <li>
+        <li onClick={()=>setOpenMenu(false)}>
           <Link to={'/members'} className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Les troqeurs</Link>
           {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
-        <li>
+        <li onClick={()=>setOpenMenu(false)}>
           <Link to={'/login'} className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}> Mon compte</Link>
           {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
-        <li>
+        <li onClick={()=>setOpenMenu(false)}>
           <Link  className={` ${openMenu ? 'text-black  text-lg font-bold' : 'text-white hover:text-blue-700'} `}  onMouseEnter={()=>setShowmenu(false)}>Aide</Link>
           {openMenu &&<hr className='mt-2 bg-slate-200' />}
         </li>
