@@ -7,8 +7,10 @@ import i2 from '../../images/alfa-romeo-Giulia.jpg'
 import { Navigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import Annonce from '../Annonce';
+import { useSelector } from 'react-redux';
 
 const Fiche = () => {
+  const {user,age}= useSelector(state=>state?.auth)
   return (
     <div className='h-[max-content]  md:w-[80%] w-[100%] mx-auto'>
   <div className='bg-white h-[max-content] w-[100%] p-4 '>
@@ -17,7 +19,7 @@ const Fiche = () => {
        <div className='bg-slate-300 h-[max-content] rounded-lg p-3'>
             <div className='flex flex-col gap-2'>
             <div className='flex justify-between items-center'>
-                    <h4 className='text-[#ff66009a] font-bold text-lg'>Gharbouch</h4>
+                    <h4 className='text-[#ff66009a] font-bold text-lg'>{user?.pseudo}</h4>
                     <ReactStars
     count={3}
    edit={false}
@@ -26,12 +28,12 @@ const Fiche = () => {
     value={1}
   />
                 </div>
-                <div className='flex justify-center items-center'><span className='flex justify-center mt-3 w-[120px] items-center h-[120px] shadow-zinc-500 rounded-full shadow-lg font-semibold text-4xl text-[#1c5c89]'>GH</span></div>
-               <div className='flex justify-between'> <span className='mt-2 text-sm'>Inscrit le :</span><span>25/04/2024</span></div>
+                <div className='flex justify-center items-center'><span className='flex justify-center mt-3 w-[120px] items-center h-[120px] shadow-zinc-500 rounded-full shadow-lg font-semibold text-4xl text-[#1c5c89]'>{user?.picture?.length<0 ?  user?.pseudo.slice(0,2).toUpperCase()  : <img className='w-full h-full object-cover rounded-full' src={user?.picture[0]?.url} /> }</span></div>
+               <div className='flex justify-between'> <span className='mt-2 text-sm'>Inscrit le :</span><span>{new Date(user?.createdDate ||  user?.createdAt).toLocaleDateString()}</span></div>
                <div className='flex justify-between'> <span className='mt-2 text-sm'>Statut :</span><span className='text-green-500'>En ligne</span></div>
                <div className='flex justify-between'> <span className='mt-2 text-sm'>Sexe:</span><span className=''>une femme </span></div>
-               <div className='flex justify-between'> <span className='mt-2 text-sm'>Age:</span><span className=''>35</span></div>  
-               <div className='flex justify-between'> <span className='mt-2 text-sm'>Il habite a:</span><span className=''>Nabeul (8000)</span></div>
+               <div className='flex justify-between'> <span className='mt-2 text-sm'>Age:</span><span className=''>{age}</span></div>  
+               <div className='flex justify-between'> <span className='mt-2 text-sm'>Il habite a:</span><span className=''>{user?.address} ({user?.code})</span></div>
                 
             </div>
             </div>
@@ -42,7 +44,7 @@ const Fiche = () => {
                <h6 className='text-lg font-semibold text-[#1c5c89]'>son message :</h6>
                <div className='w-[80%] mt-2 mx-auto relative h-[max-content] rounded-lg p-2 bg-slate-200'>
                   <div className='triangle absolute top-2 z-0 left-[-10px]'></div>
-                  <p className='text-xs p-2 z-10'>Le Lorem Ipsum est simplement du faux texte employé dans la composition  </p>
+                  <p className='text-xs p-2 z-10'>{user?.description}</p>
                </div>
                </div>
 <div className='flex flex-col gap-1'>

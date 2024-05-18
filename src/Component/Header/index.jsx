@@ -7,7 +7,9 @@ import { Menu } from '../Menu';
 import PropType from 'prop-types'
 import { IoCarSport } from "react-icons/io5";
 import { FaComputer } from "react-icons/fa6";
+import { useSelector } from 'react-redux';
 const Header = ({ setOpenMenu ,openMenu,isMediumScreen,showmenu,setShowmenu}) => {
+   const{user} = useSelector(state=>state?.auth)
   return (
    <div className='relative'>
     <button className={`bg-[#0000005a] fixed  z-50 top-3 rounded-lg ${openMenu && !isMediumScreen  ? 'left-[260px] z-50' : ''} text-white md:mx-0 mx-2 md:hidden p-2`}  onClick={()=>setOpenMenu(!openMenu)}><MdOutlineMenu   className='fs-3' style={{color:'#eee'}}  /></button>
@@ -27,10 +29,13 @@ const Header = ({ setOpenMenu ,openMenu,isMediumScreen,showmenu,setShowmenu}) =>
 </div>
 </div>
 
-<div className='flex items-center mr-3 md:mr-0 gap-1'>
+<div className='flex  md:flex-col flex-row items-center mr-3 md:mr-0 gap-1'>
    <button className='bg-[#df8844] md:hidden rounded-sm p-2'><IoSearch  className='fs-3' style={{color:'white'}} /></button>
    <Link to={'/member'} className='bg-[#df8844] md:hidden rounded-sm p-2 '><FaUserAlt className='fs-3' style={{color:'white'}} /></Link>
-   <Link to={'/member'} className='bg-[#df8844] hidden  mr-3 rounded-sm  md:flex items-center gap-2 p-3'><FaUserAlt className='fs-3' style={{color:'white'}} /><span className='text-white text-lg font-semibold'>Mon Compte</span></Link>
+ <div className='flex flex-col gap-1'>
+ <p className='hidden md:block text-white text-lg font-medium text-start'>Bonjour &nbsp;{user?.pseudo} !</p>
+  <Link to={'/member'} className='bg-[#df8844] hidden  mr-3 rounded-sm  md:flex items-center gap-2 p-3'><FaUserAlt className='fs-3' style={{color:'white'}} /><span className='text-white text-lg font-semibold'>Mon Compte</span></Link>
+ </div>
 
 </div>
 </div>

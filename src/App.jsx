@@ -19,6 +19,9 @@ import Home from './Component/Home'
 import Members from './Component/Members'
 import ProposerTroc from './Component/ProposerTroc'
 import MyTrocs from './Component/MyTrocs'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import CreateCategory from './Pages/CreateCategory'
 function App() {
 const[openMenu,setOpenMenu] = useState(false)
 const [isMediumScreen, setIsMediumScreen] = useState(false);
@@ -40,6 +43,7 @@ useLayoutEffect(() => {
   return (
     <div className={`relative body  }  `}>
     {openMenu && <div className='z-[11] absolute top-0 left-[250px] w-full h-[270vh] bg-[#0008]'></div>}
+    {/* <CreateCategory/> */}
  <BrowserRouter>
  <Header setShowmenu={setShowmenu} showmenu={showmenu}  setOpenMenu={setOpenMenu} isMediumScreen={isMediumScreen} openMenu={openMenu} />
    <Routes>
@@ -53,16 +57,30 @@ useLayoutEffect(() => {
        <Route path='/mytrocs' element={<MyTrocs/>} />
        <Route path='/member/fiche' element={<Fiche/>} />
        <Route path='/member/mag' element={<Mag/>} />
-       
+    
      <Route path='/offres' element={<Offres/>} />
      <Route path='/depotannonce' element={<DepotAnnonce/>} />
      <Route path='/members' element={<Members/>} />
-   
+     <Route path='/:token' element={<Login/>} />
+     <Route  path='/edit-annonce/:id'  element={<DepotAnnonce/>} />
    </Routes>
    <Footer isMediumScreen={isMediumScreen} setOpenMenu={setOpenMenu} openMenu={openMenu}/>
    {openMenu && !isMediumScreen && <div className='fixed top-0 left-0 w-[250px] h-[100vh] bg-white'>
     <Menu isMediumScreen={isMediumScreen} openMenu={openMenu} setShowmenu={setShowmenu} setOpenMenu={setOpenMenu} showmenu={showmenu} />
     </div>}  
+    <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+
+/>
  </BrowserRouter>
   
   
