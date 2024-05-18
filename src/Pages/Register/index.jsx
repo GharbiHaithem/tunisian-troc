@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { TextField } from '@mui/material';
 const Register = () => {
    
   const[adress,setAdress] = useState()
@@ -115,13 +116,15 @@ const Register = () => {
               </div>
               <p>{region ? <span  className='p-3 mb-3 '>{ region + " "+poste} </span> : codepostal?.length>0 && region.length===0 ? <span className=' bg-red-700   p-1 mb-3 opacity-50 text-white'>*&nbsp;verifier le code postal</span>: null}</p>
               <div>
-              <label className="col-form-label font-bold  text-xs">Date anniverssaire </label>
-            <LocalizationProvider  dateAdapter={AdapterDayjs}>
-      <DatePicker  value={formik.values.anniverssaire}
-        onChange={(newValue) => formik.setFieldValue('anniverssaire', newValue)}
-        name='anniverssaire'
-        className='w-full  bg-slate-100' />
-    </LocalizationProvider> 
+             
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+  <DatePicker
+    value={formik.values.anniverssaire ? (formik.values.anniverssaire) : null}
+    onChange={(newValue) => formik.setFieldValue('anniverssaire', newValue)}
+    name='anniverssaire'
+    renderInput={(params) => <TextField {...params} />}
+  />
+</LocalizationProvider>
             </div>
               <button type='submit' className='bg-[#ff6600] p-2 w-full  md:w-1/4 mt-3  text-white rounded-lg'>Valider Votre Inscription</button>
              </form>
