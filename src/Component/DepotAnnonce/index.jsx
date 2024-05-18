@@ -52,30 +52,42 @@ const DepotAnnonce = () => {
     const{annonces}= useSelector(state=>state?.annonce)
     const formik = useFormik({
       initialValues: {
-        rubrique:id!==undefined ? annonces[0]?.rubrique?._id : annonces[0]?.rubrique?._id ||  "",
-        title:id!==undefined ? annonces[0]?.title : annonces[0]?.title || '',
-    
-        description:id!==undefined ? annonces[0]?.description : annonces[0]?.description || "",
-        telephone:id!==undefined ? annonces[0]?.telephone : annonces[0]?.telephone || "",
-        prix:id!==undefined ? annonces[0]?.prix : annonces[0]?.prix || "",
-        annee_fabrication:id!==undefined ? annonces[0]?.annee_fabrication : annonces[0]?.annee_fabrication ||'',
-        image_annonce: id!==undefined ? annonces[0]?.image_annonce :  annonces[0]?.image_annonce ||[{}],
-        rubriques_fav:id!==undefined ? annonces[0]?.rubriques_fav :  annonces[0]?.rubriques_fav ||[],
-        proposition:id!==undefined ? annonces[0]?.proposition :"étudier toute proposition\n" || annonces[0]?.proposition
+        rubrique: "",
+        title: '',
+        description: "",
+        telephone: "",
+        prix: "",
+        annee_fabrication: '',
+        image_annonce: [{}],
+        rubriques_fav: [],
+        proposition: "étudier toute proposition\n"
       },
-      enableReinitialize:true,
+      enableReinitialize: true,
       validationSchema: annonceSchema,
       onSubmit: (values) => {
-       
-        console.log("Form submitted with values:", values);
         dispatch(createannonce(values));
         formik.resetForm();
-      
-         setTimeout(()=>{ dispatch(resetState())},8000)
-          setImages([])
-         
+        setTimeout(() => { dispatch(resetState()) }, 8000);
+        setImages([]);
       }
     });
+  
+    useEffect(() => {
+      if (id && annonces.length > 0) {
+        const annonce = annonces[0];
+        formik.setValues({
+          rubrique: annonce.rubrique?._id || "",
+          title: annonce.title || '',
+          description: annonce.description || "",
+          telephone: annonce.telephone || "",
+          prix: annonce.prix || "",
+          annee_fabrication: annonce.annee_fabrication || '',
+          image_annonce: annonce.image_annonce || [{}],
+          rubriques_fav: annonce.rubriques_fav || [],
+          proposition: annonce.proposition || "étudier toute proposition\n"
+        });
+      }
+    }, [id, annonces]);
     const {categories}= useSelector(state=>state?.cat)
     const uploadstate = useSelector(state=>state?.upload)
     useEffect(()=>{

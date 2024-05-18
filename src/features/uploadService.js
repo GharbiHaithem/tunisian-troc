@@ -1,5 +1,5 @@
 import axios from 'axios'
-const VITE_PUBLIC_URL   ="https://tunisie-annonces-backend.onrender.com/api"
+const VITE_PUBLIC_URL   ="http://localhost:5001/api"
 
 // import { config } from '../../utils/axiosConfig'
 
