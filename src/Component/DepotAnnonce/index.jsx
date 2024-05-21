@@ -250,7 +250,7 @@ useEffect(()=>{
                 <label className="col-form-label font-bold text-xs md:text-lg">Année de fabrication</label>
                 <input className="form-control rounded-lg text-xs p-2 md:h-11 bg-slate-200" type="number" name='annee_fabrication' value={formik.values.annee_fabrication} onChange={formik.handleChange('annee_fabrication')} placeholder="Année de fabrication"/>
               </div>
-           {catState&& catState==="Voitures" || catState==="Motos"  &&  <div  className="py-4 border-slate-500 border-t-2 mt-4">
+           {catState&&( catState==="Voitures" || catState==="Motos" ) &&  <div  className="py-4 border-slate-500 border-t-2 mt-4">
               <h6 className='text-[#1c5c89] font-semibold'>Les caractéristiques détaillées</h6>
              <div className="form-group mt-1">
                 <label className="col-form-label font-bold text-xs md:text-lg">Constructeur</label>
