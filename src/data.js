@@ -157,3 +157,16 @@ export const data=[
     
     
 ]
+
+
+export const detailscaracteristique=[
+    {constructeur:'Alpina',model:['B3','B5','B6','B7','B10','B12','D3','D10','Roadster S','AUTRE']},
+    {constructeur:'Alpha Romeo',model:['8C','33','75','90','145','146','149','147','155','159','156','AlphaSud','164','166','Alfetta','Brera','Guilia','CrossWagon','GT','Mi.To','GTV','RZ/SZ','Spider','SportWagon','Sprint','Autre'] },
+    {constructeur:'Audi' ,model:['80','90','200','A1','100','A2','A3','A4','A5','A6','A8','AllRoad','Cabrio','Coupe','Q5','Q7','Quatro','R8','RS2','RS4','R2','RS8','S2','S3','S4','S5','S6','S8','TT','Autre','V8','Q8','E-Tron'] },
+    {constructeur:'BMW',model:['M1','M3','M4','M6','X1','X2','X3','X5','X6','Z3','Z1','Z3M','Z4M','Z4','Z8','Serie1','Serie2','Serie3','Serie5','Serie6','Serie7','Serie8','Autre']},
+    {constructeur:'Dacia',model:['Logan','Sandero','Pick-up','Autre', 'Duster']},
+    {constructeur:'Chevrolet',model:['2500','Astro Van','Alero','Avalanche','Aveo','Beretta','Blazer','c1500','Camarro','Captivia','Caprice','Cavalier','Chevy Van','El Camino','Corsica','Cruze','Epica','G','HHR','Evanda','Impala','K1500','K30','Kalos','Lacetti','Lumina','Matiz','Malibu','Rezzo','Nubbira','S10','SilverDao','Spark','Suburban','Tahoe','SSR','Trans sport','Venture','Autre']},
+    {constructeur:'Citroen',model:['15','11','Acadine','2CV','AMI','AX','B14','AXEL','BX','Berlingo','C1','C-CROSSER','C2','C3','C15','C25','C3-PICASSO','C3-Pluriel','C4-PICASSO','C4','C5','C6','C8','CX','DS','DS3','DS4','DS5','Dyane','Grand-C4-Piccasso','JUMPY','GSA','JUMPER','LNA','Mehari','Nemo','Saxo','SM','Torpedo','Visa','XM','Xantia','Xsara','Xsara-Piccasso','ZX','AUTRE']},
+    {constructeur:'DS',model:['DS3','DS4','DS5','DS7','DS9','AUTRE']},
+    {constructeur:'FERRARI',model:['208','246','250','275','288','308','328','330','348','360','400','356','412','550','456','512','575','599GTB','612','750','DAYTOUNA','DINO-GT4','ENZO-FERRARI','F40','F50','MONDIAL','F355','SuperAmerica','Tesstarossa','AUTRE']}
+]

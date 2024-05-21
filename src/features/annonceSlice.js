@@ -39,8 +39,25 @@ return  thunkAPI.rejectWithValue(error)
 
     }
 })
+export const updateAnnonce = createAsyncThunk('updateAnnonce',async(id,thunkAPI)=>{
+    try {
+        return await AnnonceService.updateAnnonces(id)
+    } catch (error) {
+        
+return  thunkAPI.rejectWithValue(error)
 
+    }
+})
+export const deleteImageAnnonce = createAsyncThunk('delete/image/annonce',async(data,thunkAPI)=>{
+    try {
+        console.log(data)
+        return await AnnonceService.delImgAnnonce(data)
+    } catch (error) {
+        
+return  thunkAPI.rejectWithValue(error)
 
+    }
+})
 
 export const AnnonceSlice = createSlice({
     name:'annonce',
@@ -94,6 +111,57 @@ export const AnnonceSlice = createSlice({
       
         })
         .addCase(getannoncesbyid.rejected,(state,action)=>{
+            state.isLoading=false
+            state.isSuccess=false
+            state.isError=true
+            state.message=action.error
+           
+          
+        })
+        .addCase(updateAnnonce.pending,(state)=>{
+            state.isLoading=false
+           
+           
+       
+        })
+      
+        .addCase(updateAnnonce.fulfilled,(state,action)=>{
+            state.isLoading=false
+            state.isSuccess=true
+          
+                    state.annonces = action.payload;
+                    toast.success('annonce modifier avec success')
+               
+      
+        })
+        .addCase(updateAnnonce.rejected,(state,action)=>{
+            state.isLoading=false
+            state.isSuccess=false
+            state.isError=true
+            state.message=action.error
+           
+          
+        })
+        .addCase(deleteImageAnnonce.pending,(state)=>{
+            state.isLoading=false
+           
+           
+       
+        })
+      
+        .addCase(deleteImageAnnonce.fulfilled,(state,action)=>{
+            state.isLoading=false
+            state.isSuccess=true
+          
+            const index = state.annonces.findIndex(annonce => annonce._id === action.payload._id);
+            if (index !== -1) {
+              state.annonces[index] = action.payload;
+            }
+                    toast.success('delet image annonce authMiddlewareavec success')
+               
+      
+        })
+        .addCase(deleteImageAnnonce.rejected,(state,action)=>{
             state.isLoading=false
             state.isSuccess=false
             state.isError=true

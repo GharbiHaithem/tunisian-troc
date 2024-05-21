@@ -66,7 +66,7 @@ const Info = () => {
   const uploadstate = useSelector(state=>state?.upload)
   useEffect(()=>{
     if(images){
-     formik.values.picture=uploadstate.images
+     formik.values.picture=uploadstate.images[0]
    
     
     }

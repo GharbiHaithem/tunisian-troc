@@ -36,7 +36,21 @@ const deletecategry = async(id) =>{
    console.log(response.data);
    return response.data
 } 
+
+const updateAnnonces = async(data)=>{
+    console.log(data.id)
+    const response = await API.put(`${VITE_PUBLIC_URL}/edit-annonce/${data.id}` , data.xdata)
+    console.log(response.data);
+    return response.data
+ } 
+
+ const delImgAnnonce = async(data)=>{
+    console.log(data);
+    const response = await API.delete(`${VITE_PUBLIC_URL}/${data.annonceId}/images/${data.public_id}` )
+    console.log(response.data);
+    return response.data
+ } 
 const CategoryProductsService = {
-    createannonce,deletecategry,getMyAllAnnonces,getAnnonceById
+    createannonce,deletecategry,getMyAllAnnonces,getAnnonceById,updateAnnonces,delImgAnnonce
 }
 export default CategoryProductsService
