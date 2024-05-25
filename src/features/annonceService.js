@@ -29,14 +29,24 @@ const deletecategry = async(id) =>{
     console.log(response);
     return response.data
  }   
-
+ const getAnnoncesByUser = async(userid)=>{
+   console.log(userid);
+   const response = await axios.get(`${ VITE_PUBLIC_URL}/getAnnonceByUser/${userid}`)
+   console.log(response);
+   return response.data
+}  
  const getAnnonceById = async(id)=>{
    console.log(id)
    const response = await axios.get(`${VITE_PUBLIC_URL}/getAnnonce/${id}`)
    console.log(response.data);
    return response.data
 } 
-
+const getAnnonces = async(limit)=>{
+   console.log(limit)
+   const response = await API.get(`${VITE_PUBLIC_URL}/getAnnonces?limit=${limit}`)
+   console.log(response.data);
+   return response.data
+} 
 const updateAnnonces = async(data)=>{
     console.log(data.id)
     const response = await API.put(`${VITE_PUBLIC_URL}/edit-annonce/${data.id}` , data.xdata)
@@ -51,6 +61,6 @@ const updateAnnonces = async(data)=>{
     return response.data
  } 
 const CategoryProductsService = {
-    createannonce,deletecategry,getMyAllAnnonces,getAnnonceById,updateAnnonces,delImgAnnonce
+    createannonce,deletecategry,getMyAllAnnonces,getAnnonceById,updateAnnonces,delImgAnnonce,getAnnoncesByUser,getAnnonces
 }
 export default CategoryProductsService

@@ -17,7 +17,9 @@ import './style.css'
 import arr from '../../images/echange.png'
 import { SlArrowDown } from "react-icons/sl";
 import { SlArrowUp } from "react-icons/sl";
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
+import { useDispatch, useSelector } from 'react-redux'
+import { getannoncesbyid } from '../../features/annonceSlice'
 
 const DetailsTroc = ({isMediumScreen}) => {
     const[showTroc , setShowTroc] = useState(false)
@@ -25,6 +27,13 @@ const DetailsTroc = ({isMediumScreen}) => {
     const[trocReceiver , setTrocReceiver] = useState(true)
     const topRef = useRef(null);
     const navigate = useNavigate()
+    const {id} =useParams()
+    const dispatch= useDispatch()
+    useEffect(()=>{
+      if(id!==undefined){
+        dispatch(getannoncesbyid(id))
+      }
+    },[dispatch,id])
     useEffect(() => {
         // Faites défiler la page vers le haut lorsque la composante est montée
         window.scrollTo({
@@ -32,35 +41,43 @@ const DetailsTroc = ({isMediumScreen}) => {
           behavior: 'smooth', // Ajoute un effet de défilement fluide
         });
       }, []);
+      const{annonces,isLoading} = useSelector(state=>state?.annonce)
   return (
-    <div ref={topRef} className='md:w-[80%] w-screen mx-auto bg-slate-200 p-3 h-[max-content]'>
+    <>
+  {isLoading ? ''  : 
+
+  <div ref={topRef} className='md:w-[80%] w-screen mx-auto bg-slate-200 p-3 h-[max-content]'>
     <div className='flex justify-between items-center'>
-  <span className='text-[#236693] font-bold'>  M550D Très bon état</span>
-<span className='text-slate-400 text-xs font-medium'>Publiée le 01/05/2024</span>
+  <span className='text-[#236693] font-bold'>  {annonces[0]?.title}</span>
+<span className='text-slate-400 text-xs font-medium'>Publiée le {new Date(annonces[0]?.createdAt).toLocaleDateString()}</span>
     </div>
   <div>
       <div className='flex md:flex-row flex-col gap-3 mt-1'>
-         <div className='md:w-[75%] w-full flex flex-col gap-1'>
-            <img width={'100%'}  className='rounded-lg object-cover h-[450px]' src={i1} alt=''  />
+         <div className='md:w-[65%] w-full flex flex-col gap-1'>
+            <img width={'80%'}  className='rounded-lg object-contain h-[450px]' src={annonces[0]?.image_annonce[0]?.url} alt=''  />
             <div className='flex gap-1 w-[100%]'>
-            <img className='w-[calc(25%-4px)] rounded-lg' height={'155px'} src={i2} alt=''  />
-            <img className='w-[calc(25%-4px)] rounded-lg' height={'155px'} src={i3} alt=''  />
-            <img className='w-[calc(25%-4px)] rounded-lg' height={'155px'} src={i1} alt=''  />
-            <img className='w-[25%]' height={'155px'} src={i1} alt=''  />
+          {
+            annonces[0]?.image_annonce?.map((i)=>(
+              <img key={i?.asset_id} className='w-[calc(25%-4px)] rounded-lg' height={'155px'} src={i?.url} alt=''  />
+            ))
+          }
+         
             
             </div>
          </div>
-         {!isMediumScreen ? (<div className='w-full '>
-         <h3 className='text-[#236693] font-bold'>Année : <span className='text-[#ff4400e9]'>1999</span></h3>
+         {!isMediumScreen   ? (<div className='w-full '>
+         <h3 className='text-[#236693] font-bold'>Année : <span className='text-[#ff4400e9]'>{annonces[0]?.annee_fabrication}</span></h3>
  
+{ annonces[0]?.rubrique?.title==="VEHICULES" && (annonces[0]?.rubrique?.parentID?.title==="Voitures" || "Motos") &&<>
 <p className='flex gap-2 items-center justify-between'><span className='font-medium text-sm text-slate-400'>Constructeur :</span><span className='text-xs '> Suzuki</span></p>
 <p className='flex gap-2 items-center justify-between'><span className='font-medium text-sm text-slate-400'>Kilométrage  :</span><span className='text-xs '>  41000 km</span></p>
 <p className='flex gap-2 items-center justify-between'><span className='font-medium text-sm text-slate-400'>Cylindrée :</span><span className='text-xs '> 1300 centimètres cubes</span></p>
 <p className='flex gap-2 items-center justify-between'><span className='font-medium text-sm text-slate-400'>Nombre de propriétaires précédents : </span><span className='text-xs '> Plus de 2</span></p>
 <p className='flex gap-2 items-center justify-between'><span className='font-medium text-sm text-slate-400'>Couleur : </span><span className='text-xs '>  Blanche</span></p>
 <p className='flex gap-2 items-center justify-between'><span className='font-medium text-sm text-slate-400'>Type : </span><span className='text-xs '>   Sport GT</span></p>
+</>}
 
-<p className='flex gap-2 flex-col'><span className='text-[#236693]  font-semibold'>Description:</span><span className='text-xs '>  An 1999 40000km revision faite vidange moteur liquide refroidissement pneu av et ar filtre a huile etc.... faire offre</span></p>
+<p className='flex gap-2 flex-col'><span className='text-[#236693]  font-semibold'>Description:</span><span className='text-xs '> {annonces[0]?.description}</span></p>
 
 
 
@@ -73,8 +90,8 @@ const DetailsTroc = ({isMediumScreen}) => {
             <button className='bg-[#236693] text-white p-2 w-full rounded-lg text-lg font-light'>Contacter par Email</button>
             <button className='bg-white border-1 border-slate-600 text-[#236693] p-2 w-full justify-center flex items-center rounded-lg text-lg font-light'><BiLike />J'aime cet Objet</button>
             <div className='bg-white w-full text-[#236693] p-2 mt-3'>
-                <h4>par Gharbouch</h4>
-                <p className='mt-1 text-black text-sm'>Habite a Nabeul Nabeul 8000</p>
+                <h4>par {annonces[0]?.createdBy?.pseudo}</h4>
+                <p className='mt-1 text-black text-sm'>Habite a{annonces[0]?.createdBy?.address}</p>
                 <button className='bg-[#236693] text-white p-2 block mx-auto rounded-lg mt-3'>Voi sa fiche et ces annonces</button>
             </div>
          </div>
@@ -83,16 +100,18 @@ const DetailsTroc = ({isMediumScreen}) => {
   
     </div>
   </div>
-    {isMediumScreen && (<>
+    {isMediumScreen  && (<>
         <div className='md:w-[67%]'>
-         <h3 className='text-[#236693] font-bold mb-3 mt-2'>Année : <span className='text-[#ff4400e9]'>1999</span></h3>
- 
-<p className='flex gap-2  mb-1 items-center justify-between'><span className='font-medium text-sm text-slate-400'>Constructeur :</span><span className='text-xs '> Suzuki</span></p><hr/>
+         <h3 className='text-[#236693] font-bold mb-3 mt-2'>Année : <span className='text-[#ff4400e9]'>{annonces[0]?.annee_fabrication}</span></h3>
+ { annonces[0]?.rubrique?.title==="VEHICULES" && (annonces[0]?.rubrique?.parentID?.title==="Voitures" || "Motos") && <>
+ <p className='flex gap-2  mb-1 items-center justify-between'><span className='font-medium text-sm text-slate-400'>Constructeur :</span><span className='text-xs '> Suzuki</span></p><hr/>
 <p className='flex gap-2 mb-1  items-center justify-between'><span className='font-medium text-sm text-slate-400'>Kilométrage  :</span><span className='text-xs '>  41000 km</span></p><hr/>
 <p className='flex gap-2  mb-1 items-center justify-between'><span className='font-medium text-sm text-slate-400'>Cylindrée :</span><span className='text-xs '> 1300 centimètres cubes</span></p><hr/>
 <p className='flex gap-2  mb-1 items-center justify-between'><span className='font-medium text-sm text-slate-400'>Nombre de propriétaires précédents : </span><span className='text-xs '> Plus de 2</span></p><hr/>
 <p className='flex gap-2 mb-1  items-center justify-between'><span className='font-medium text-sm text-slate-400'>Couleur : </span><span className='text-xs '>  Blanche</span></p><hr/>
 <p className='flex gap-2 mb-1  items-center justify-between'><span className='font-medium text-sm text-slate-400'>Type : </span><span className='text-xs '>   Sport GT</span></p><hr/>
+
+ </>}
 
 <p className='flex flex-col gap-2'><span className='text-[#236693] font-bold'>Description : </span><span className='text-xs '>  An 1999 40000km revision faite vidange moteur liquide refroidissement pneu av et ar filtre a huile etc.... faire offre</span></p>
 
@@ -107,10 +126,10 @@ const DetailsTroc = ({isMediumScreen}) => {
         ) 
        } 
    <div className='mt-3'>
- <h6 className='text-[#236693] font-bold'>  Nico4740 souhaite en échange :</h6> 
+ <h6 className='text-[#236693] font-bold'>  {annonces[0]?.createdBy?.pseudo} souhaite en échange :</h6> 
 <div className='flex'>
  <img   alt='' src={arr}/>   
-<span> M2 m3 m4 m5 m6 rs4 rs5 rs7</span> 
+ <span>{annonces[0]?.rubriques_fav ? annonces[0].rubriques_fav.join(' ') : 'Pas de rubriques favoris'}</span>
 </div>
    </div>
         { (!isMediumScreen && <>
@@ -120,8 +139,8 @@ const DetailsTroc = ({isMediumScreen}) => {
             <button className='bg-white border-1 border-slate-600 text-[#236693] p-2  w-full md:text-lg text-xs justify-center flex items-center rounded-lg  font-light'><BiLike />J'aime cet Objet</button>
          </div>
          <div className='bg-white w-full text-[#236693] p-2 mt-3'>
-                <h4>par Gharbouch</h4>
-                <p className='mt-1 text-black text-sm'>Habite a Nabeul Nabeul 8000</p>
+                <h4>par {annonces[0]?.createdBy?.pseudo}</h4>
+                <p className='mt-1 text-black text-sm'>Habite a {annonces[0]?.createdBy?.address}</p>
                 <button className='bg-[#236693] text-white p-2 block mx-auto rounded-lg mt-3'>Voi sa fiche et ces annonces</button>
             </div>
          </>)}
@@ -179,7 +198,8 @@ const DetailsTroc = ({isMediumScreen}) => {
             setTrocReceiver(false)}} className={` w-[45%] p-1  ${trocSender ? 'bg-[#236693] text-white' : 'bg-white text-[#236693]'} text-xs md:text-sm`}>Les trocs envoyés :</button>
        </div>
      </div> }
-    </div>
+    </div>}
+    </>
   )
 }
 DetailsTroc.prototype={

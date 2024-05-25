@@ -33,7 +33,7 @@ const Info = () => {
   picture:user?.picture[0]?.url || [{}],
       description:user?.description || "",
       code:user?.code || "",
-      anniverssaire: user?.anniverssaire ? (user?.anniverssaire) : null,
+      dateNaissance: user?.dateNaissance ? (user?.dateNaissance) : null,
      
     },
     validationSchema: infoUserSchema,
@@ -87,10 +87,10 @@ const Info = () => {
    };
  
    useEffect(() => {
-     if (formik.values.anniverssaire) {
-       setAge(calculateAge(formik.values.anniverssaire));
+     if (formik.values.dateNaissance) {
+       setAge(calculateAge(formik.values.dateNaissance));
      }
-   }, [formik.values.anniverssaire]);
+   }, [formik.values.dateNaissance]);
   
    console.log(age)
    
@@ -146,7 +146,7 @@ const Info = () => {
                 <input className="form-control rounded-lg text-xs p-3" type="text" value={user?.address} disabled required="" placeholder="Ville ..."/>
               </div>
             <div className='mt-2'>
-            {new Date(user?.anniverssaire).toLocaleDateString()}
+            {new Date(user?.dateNaissance).toLocaleDateString()}
             </div>
             <div className="form-group mt-1 mb-1">
                 <label className="col-form-label font-bold  text-xs">Ma description</label>

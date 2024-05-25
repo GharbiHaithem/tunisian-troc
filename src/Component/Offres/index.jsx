@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { MdOutlineCategory } from "react-icons/md";
 import { GiModernCity } from "react-icons/gi";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { GoFilter } from "react-icons/go";
 import Annonce from '../Annonce';
+import { useDispatch, useSelector } from 'react-redux';
+import { getannonces } from '../../features/annonceSlice';
 const Offres = () => {
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(getannonces(8))
+  }, [dispatch])
+  const{annonces} = useSelector(state=>state?.annonce)
   return (
    <>
     <div className='bg-gradient-to-l  from-slate-400 md:w-[80%] p-3 w-[98%] mx-auto h-[max-content] to-slate-100'>
@@ -68,11 +75,12 @@ const Offres = () => {
     
   <div className='md:w-[80%] p-4 mb-3  flex md:flex-row  flex-col-reverse gap-2 mx-auto w-[97%]  bg-white'>
  <div className='md:w-[80%] w-full'>
- <Annonce/>
-    <Annonce/>
-    <Annonce/>
-    <Annonce/>
-    <Annonce/>
+
+{annonces?.map((a)=>(
+  <Annonce data={a}  key={a?._id} />
+))}
+ 
+
  </div>
     <div className='md:w-[20%] mx-auto w-[98%] p-1 bg-white '>
         <h5 className='font-medium text-[#1c5c89]'>Annonces a la lune</h5>

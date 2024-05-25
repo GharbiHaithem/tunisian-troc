@@ -40,7 +40,7 @@ const Register = () => {
          email:yup.string().email('format invalid email').required('email is required'),
     
         password:yup.string().required('password is required').min(4).max(20),
-        anniverssaire:yup.date().required('date anniverssaire et required')
+        dateNaissance:yup.date().required('date anniverssaire et required')
         
         
       }) 
@@ -54,7 +54,7 @@ const Register = () => {
           address: "",
           sex: "",
           code:"",
-          anniverssaire:""
+          dateNaissance:""
         },
         validationSchema: signupSchema,
         onSubmit: (values) => {
@@ -119,9 +119,9 @@ const Register = () => {
              
               <LocalizationProvider dateAdapter={AdapterDayjs}>
   <DatePicker
-    value={formik.values.anniverssaire ? (formik.values.anniverssaire) : null}
-    onChange={(newValue) => formik.setFieldValue('anniverssaire', newValue)}
-    name='anniverssaire'
+    value={formik.values.dateNaissance ? (formik.values.dateNaissance) : null}
+    onChange={(newValue) => formik.setFieldValue('dateNaissance', newValue)}
+    name='dateNaissance'
     renderInput={(params) => <TextField {...params} />}
   />
 </LocalizationProvider>

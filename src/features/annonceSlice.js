@@ -39,6 +39,26 @@ return  thunkAPI.rejectWithValue(error)
 
     }
 })
+
+export const getannoncesbyuser = createAsyncThunk('annoncebyuser/get',async(userid,thunkAPI)=>{
+    try {
+        return await AnnonceService.getAnnoncesByUser(userid)
+    } catch (error) {
+        
+return  thunkAPI.rejectWithValue(error)
+
+    }
+})
+
+export const getannonces = createAsyncThunk('annonces/get',async(limit,thunkAPI)=>{
+    try {
+        return await AnnonceService.getAnnonces(limit)
+    } catch (error) {
+        
+return  thunkAPI.rejectWithValue(error)
+
+    }
+})
 export const updateAnnonce = createAsyncThunk('updateAnnonce',async(id,thunkAPI)=>{
     try {
         return await AnnonceService.updateAnnonces(id)
@@ -162,6 +182,54 @@ export const AnnonceSlice = createSlice({
       
         })
         .addCase(deleteImageAnnonce.rejected,(state,action)=>{
+            state.isLoading=false
+            state.isSuccess=false
+            state.isError=true
+            state.message=action.error
+           
+          
+        })
+        .addCase(getannoncesbyuser.pending,(state)=>{
+            state.isLoading=false
+           
+           
+       
+        })
+      
+        .addCase(getannoncesbyuser.fulfilled,(state,action)=>{
+            state.isLoading=false
+            state.isSuccess=true
+          
+                    state.annonces = action.payload;
+                 
+               
+      
+        })
+        .addCase(getannoncesbyuser.rejected,(state,action)=>{
+            state.isLoading=false
+            state.isSuccess=false
+            state.isError=true
+            state.message=action.error
+           
+          
+        })
+        .addCase(getannonces.pending,(state)=>{
+            state.isLoading=false
+           
+           
+       
+        })
+      
+        .addCase(getannonces.fulfilled,(state,action)=>{
+            state.isLoading=false
+            state.isSuccess=true
+          
+                    state.annonces = action.payload;
+                 
+               
+      
+        })
+        .addCase(getannonces.rejected,(state,action)=>{
             state.isLoading=false
             state.isSuccess=false
             state.isError=true

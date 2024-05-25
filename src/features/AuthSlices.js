@@ -453,7 +453,7 @@ export const authSlice = createSlice({
         console.log(action.payload)
         state.isLoading=false
         state.isSuccess=true
-        state.user = action.payload
+        state.userid = action.payload
         state.verified = true
        
 

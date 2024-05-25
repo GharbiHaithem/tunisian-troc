@@ -10,9 +10,20 @@ import { MdDeleteSweep } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../features/AuthSlices';
-const Member = () => {
+import PropTypes from 'prop-types';
+const Member = ({socket}) => {
   const{user} = useSelector(state=>state?.auth)
   const dispatch = useDispatch()
+  const handleDisconnect = ()=>{
+    dispatch(logOut())
+    socket?.current?.emit('disconnectUser');
+    socket?.current?.on("getuser",user=>{
+      console.log(user)
+     
+    }) 
+    console.log('Logo clicked and user disconnected');
+  }
+
   return (
     <div className=''>
        <div className='md:w-[80%] w-screen mx-auto h-[max-content] bg-white my-4 p-4'>
@@ -35,7 +46,7 @@ const Member = () => {
             <button className='p-3 flex items-center w-full justify-center mt-2  border-1 bg-white  border-slate-300'>
            <div className='gap-1 justify-center items-center flex flex-col'>
            <FaPowerOff  style={{fontSize:'30px' , color:'#1c5c89'}} />
-            <span onClick={()=>dispatch(logOut())}  className='text-[#1c5c89] font-normal text-xs md:text-base md:font-medium'>Se Me Déconnecter </span>
+            <span onClick={handleDisconnect}  className='text-[#1c5c89] font-normal text-xs md:text-base md:font-medium'>Se Me Déconnecter </span>
            </div>
             </button>
         </div>
@@ -48,5 +59,9 @@ const Member = () => {
     </div>
   )
 }
+Member.propTypes = {
+  socket: PropTypes.object.isRequired,
 
+
+};
 export default Member

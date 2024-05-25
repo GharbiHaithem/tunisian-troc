@@ -1,8 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import dayjs from 'dayjs';
+import { Link } from 'react-router-dom';
+const Members = ({userConnected}) => {
+  const{users,user} = useSelector(state=>state?.auth)
+  const [isChecked, setIsChecked] = useState(false);
 
-const Members = () => {
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
+console.log(userConnected)
+const [usersMapping,setUsersMapping] = useState([])
+useEffect(()=>{
+  if(isChecked){
+    setUsersMapping(userConnected)
+  }else{
+    setUsersMapping(users)
+  }
+},[isChecked,users])
+
+const calculateAge = (dateBirthday) => {
+  if (dateBirthday) {
+    const today = dayjs();
+    const birthday = dayjs(dateBirthday);
+    let age = today.year() - birthday.year();
+    if (today.month() < birthday.month() || (today.month() === birthday.month() && today.date() < birthday.date())) {
+      age--;
+    }
+    return age;
+  }
+  return null;
+};
   return (
    <>
+   
     <div className='bg-gradient-to-br from-slate-400 to-slate-300 md:w-[80%] p-3 w-full h-[max-content] mx-auto'>
     <form className=''>
             <div className='md:flex md:items-center w-full md:gap-1'>
@@ -29,7 +61,10 @@ const Members = () => {
             </div>
                  <div className='mt-3 flex gap-2'>
              <div className="form-check ">
-  <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked"  />
+  <input className="form-check-input" type="checkbox" 
+    checked={isChecked}
+    onChange={handleCheckboxChange}
+  id="flexCheckChecked"  />
   <label className="form-check-label text-xs" htmlFor="flexCheckChecked">
   EN LIGNE
   </label>
@@ -43,23 +78,30 @@ const Members = () => {
              </div>
              </form>
     </div>
-    <div className='md:w-[80%] p-3  w-full h-[max-content] bg-[#efefef] mx-auto'>
-      <div className='flex md:flex-row flex-col md:justify-between  gap-5'>
-        <div className='flex flex-col mt-4 gap-1 md:w-[70%] w-full'>
-        <div className='w-[95%] mx-auto bg-white p-5 flex md:flex-row md:justify-between gap-5 flex-col md:rounded-lg h-[max-content]'>
+    <div className='md:w-[80%] p-1  w-[75%] mt-5 h-[max-content] bg-transparent mx-auto'>
+      <div className='flex md:flex-row flex-col md:justify-between  gap-2'>
+        <div className='flex flex-col mt-1 gap-1 md:w-[70%] w-full'>
+       {
+        usersMapping?.length>0 && usersMapping?.filter((data) => data._id !== user?._id)
+        ?.map((data)=>(
+          <>
+           <div className='w-[95%] mx-auto bg-white p-4 flex md:flex-row md:justify-between gap-2 flex-col rounded-lg h-[max-content]'>
   <div className='md:w-[25%] h-[100px] flex items-center justify-center flex-col mt-4'>
-    <img className='rounded-lg w-[100px] h-[100px]' src='https://www.france-troc.com//ImgUsers/avatars/n25.jpg' />
-    <span className='text-center text-green-500 text-xs font-bold mt-2'>En ligne</span>
+    <img className='rounded-lg w-[100px] h-[100px]' src={data?.picture[0]?.url} />
+    <span className='text-center mt-2'>{ userConnected?.find((x) => x?._id === data?._id) ? <span className='text-green-500 text-xs font-bold '>En ligne</span> : <span className='text-red-500 text-xs font-bold '>Hors ligne</span> }</span>
   </div>
-  <div className='md:w-[50%] flex flex-col items-start justify-center  w-full mt-5'>
-    <h5 className='text-[#1c5c89] text-lg font-semibold items-start'>Jhonny54</h5>
-    <p className='mt-2 text-sm items-start'>Un homme de 69 ans</p>
-    <p className='mt-2 text-sm items-start'>Habite Chartres (28000) en Centre</p>
+  <div className='md:w-[50%] flex flex-col items-start justify-center  w-full mt-2'>
+    <h5 className='text-[#1c5c89] text-lg font-semibold items-start'>{data?.pseudo}</h5>
+    <p className='mt-2 text-sm items-start'>Un homme de {calculateAge(data?.dateNaissance)} ans</p>
+    <p className='mt-2 text-sm items-start'>{data?.address}</p>
   </div>
   <div className='md:w-[35%] w-full mt-2 flex justify-center items-center'>
-    <button className='bg-[#1c5c89] text-white text-sm p-2 rounded-lg'>Voir ces 90 annonces</button>
+    <Link  to={`/fiche/${data?._id}`} className='bg-[#1c5c89] text-white text-xs p-2 rounded-lg' >Voir son mag</Link>
   </div>
 </div>
+          </>
+        ))
+       }
 
             
        
@@ -79,5 +121,10 @@ const Members = () => {
    </>
   )
 }
+Members.propTypes = {
+  // socket: PropTypes.object.isRequired,
+  userConnected: PropTypes.func.isRequired,
+
+};
 
 export default Members
